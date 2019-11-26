@@ -60,8 +60,25 @@ void computeKeyPointsAndDesp( FRAME& frame, string detector, string descriptor )
     cv::Ptr<cv::FeatureDetector> _detector;
     cv::Ptr<cv::DescriptorExtractor> _descriptor;
 
-    _detector = cv::FeatureDetector::create( detector.c_str() );
-    _descriptor = cv::DescriptorExtractor::create( descriptor.c_str() );
+    if (detector.c_str() == "SURF") {
+        _detector = cv::xfeatures2d::SURF;
+    } 
+    else if (detector.c_str() == "SIFT") {
+        _detector = cv::xfeatures2d::SIFT;
+    }
+    else if (detector.c_str() == "ORB") {
+        _detector = cv::ORB;
+    }
+
+    if (descriptor.c_str() == "SURF") {
+        _descriptor = cv::xfeatures2d::SURF;
+    } 
+    else if (descriptor.c_str() == "SIFT") {
+        _descriptor = cv::xfeatures2d::SIFT;
+    }
+    else if (descriptor.c_str() == "ORB") {
+        _descriptor = cv::ORB;
+    }
 
     if (!_detector || !_descriptor)
     {

@@ -60,8 +60,24 @@ void computeKeyPointsAndDesp( FRAME& frame, string detector, string descriptor )
     cv::Ptr<cv::FeatureDetector> _detector;
     cv::Ptr<cv::DescriptorExtractor> _descriptor;
 
-    _detector = cv::FeatureDetector::create( detector.c_str() );
-    _descriptor = cv::DescriptorExtractor::create( descriptor.c_str() );
+    if (detector == "FAST") {
+        _detector = cv::FastFeatureDetector::create();
+    } 
+
+    else if (detector == "ORB") {
+        _detector = cv::ORB::create();
+    }
+
+    if (descriptor == "FAST") {
+        _descriptor = cv::FastFeatureDetector::create();
+    } 
+
+    else if (descriptor == "ORB") {
+        _descriptor = cv::ORB::create();
+    }
+
+    // _detector = cv::FeatureDetector::create( detector.c_str() );
+    // _descriptor = cv::DescriptorExtractor::create( descriptor.c_str() );
 
     if (!_detector || !_descriptor)
     {
@@ -135,7 +151,7 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
     cv::Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
     cv::Mat rvec, tvec, inliers;
     // 求解pnp
-    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 100, inliers );
+    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.99, inliers );
 
     RESULT_OF_PNP result;
     result.rvec = rvec;

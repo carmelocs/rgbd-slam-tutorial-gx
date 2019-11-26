@@ -24,8 +24,8 @@ int main( int argc, char** argv )
     cv::Mat depth2 = cv::imread( "./data/depth2.png", -1);
 
     // 声明特征提取器与描述子提取器
-    cv::Ptr<cv::FeatureDetector> detector;
-    cv::Ptr<cv::DescriptorExtractor> descriptor;
+    cv::Ptr<cv::FeatureDetector> detector = cv::ORB::create();
+    cv::Ptr<cv::DescriptorExtractor> descriptor = cv::ORB::create();
 
     // 构建提取器，默认两者都为 ORB
     
@@ -34,8 +34,8 @@ int main( int argc, char** argv )
     // _detector = cv::FeatureDetector::create( "SIFT" );
     // _descriptor = cv::DescriptorExtractor::create( "SIFT" );
     
-    detector = cv::FeatureDetector::create("ORB");
-    descriptor = cv::DescriptorExtractor::create("ORB");
+    // detector = cv::FeatureDetector::create("ORB");
+    // descriptor = cv::DescriptorExtractor::create("ORB");
 
     vector< cv::KeyPoint > kp1, kp2; //关键点
     detector->detect( rgb1, kp1 );  //提取关键点
