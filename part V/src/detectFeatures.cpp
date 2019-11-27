@@ -18,10 +18,10 @@ using namespace std;
 int main( int argc, char** argv )
 {
     // 声明并从data文件夹里读取两个rgb与深度图
-    cv::Mat rgb1 = cv::imread( "./data/rgb1.png");
-    cv::Mat rgb2 = cv::imread( "./data/rgb2.png");
-    cv::Mat depth1 = cv::imread( "./data/depth1.png", -1);
-    cv::Mat depth2 = cv::imread( "./data/depth2.png", -1);
+    cv::Mat rgb1 = cv::imread( "/home/shuai_cheng/Documents/Repositories/data/rgbd-slam-tutorial-gx/rgb1.png");
+    cv::Mat rgb2 = cv::imread( "/home/shuai_cheng/Documents/Repositories/data/rgbd-slam-tutorial-gx/rgb2.png");
+    cv::Mat depth1 = cv::imread( "/home/shuai_cheng/Documents/Repositories/data/rgbd-slam-tutorial-gx/depth1.png", -1);
+    cv::Mat depth2 = cv::imread( "/home/shuai_cheng/Documents/Repositories/data/rgbd-slam-tutorial-gx/depth2.png", -1);
 
     // 声明特征提取器与描述子提取器
     cv::Ptr<cv::FeatureDetector> detector;
