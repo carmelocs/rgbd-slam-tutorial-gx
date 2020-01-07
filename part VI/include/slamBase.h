@@ -29,7 +29,8 @@ using namespace std;
 #include <pcl/io/pcd_io.h>
 #include <pcl/point_types.h>
 #include <pcl/common/transforms.h>
-#include <pcl/visualization/cloud_viewer.h>
+#include <pcl-1.8/pcl/visualization/cloud_viewer.h>
+// #include <pcl/visualization/cloud_viewer.h>
 #include <pcl/filters/voxel_grid.h>
 
 // 类型定义
