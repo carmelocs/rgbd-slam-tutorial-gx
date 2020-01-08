@@ -99,7 +99,12 @@ int main( int argc, char** argv )
         Eigen::Isometry3d T = cvMat2Eigen( result.rvec, result.tvec );
         cout<<"T="<<T.matrix()<<endl;
         
-        // cloud = joinPointCloud( cloud, currFrame, T, camera );
+        // 去掉可视化的话，会快一些
+        if ( visualize == true )
+        {
+            cloud = joinPointCloud( cloud, currFrame, T, camera );
+            viewer.showCloud( cloud );
+        }
 
         // 向g2o中增加这个顶点与上一帧联系的边
         // 顶点部分

@@ -73,6 +73,6 @@ int main( int argc, char** argv )
     pcl::io::savePCDFile( "./data/pointcloud.pcd", *cloud );
     // 清除数据并退出
     cloud->points.clear();
-    cout<<"Point cloud saved."<<endl;
+    cout<<"Point cloud saved to ./data/pointcloud.pcd."<<endl;
     return 0;
 }

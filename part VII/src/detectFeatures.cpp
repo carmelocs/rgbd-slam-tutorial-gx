@@ -24,8 +24,8 @@ int main( int argc, char** argv )
     cv::Mat depth2 = cv::imread( "./data/depth2.png", -1);
 
     // 声明特征提取器与描述子提取器
-    cv::Ptr<cv::FeatureDetector> detector;
-    cv::Ptr<cv::DescriptorExtractor> descriptor;
+    cv::Ptr<cv::FeatureDetector> _detector;
+    cv::Ptr<cv::DescriptorExtractor> _descriptor;
 
     // 构建提取器，默认两者都为 ORB
     
@@ -34,12 +34,15 @@ int main( int argc, char** argv )
     // _detector = cv::FeatureDetector::create( "SIFT" );
     // _descriptor = cv::DescriptorExtractor::create( "SIFT" );
     
-    detector = cv::FeatureDetector::create("ORB");
-    descriptor = cv::DescriptorExtractor::create("ORB");
+    //_detector = cv::FeatureDetector::create("ORB");
+    //_descriptor = cv::DescriptorExtractor::create("ORB");
+
+    _detector = cv::ORB::create();
+    _descriptor = cv::ORB::create();
 
     vector< cv::KeyPoint > kp1, kp2; //关键点
-    detector->detect( rgb1, kp1 );  //提取关键点
-    detector->detect( rgb2, kp2 );
+    _detector->detect( rgb1, kp1 );  //提取关键点
+    _detector->detect( rgb2, kp2 );
 
     cout<<"Key points of two images: "<<kp1.size()<<", "<<kp2.size()<<endl;
     
@@ -52,8 +55,8 @@ int main( int argc, char** argv )
    
     // 计算描述子
     cv::Mat desp1, desp2;
-    descriptor->compute( rgb1, kp1, desp1 );
-    descriptor->compute( rgb2, kp2, desp2 );
+    _descriptor->compute( rgb1, kp1, desp1 );
+    _descriptor->compute( rgb2, kp2, desp2 );
 
     // 匹配描述子
     vector< cv::DMatch > matches; 
@@ -135,7 +138,8 @@ int main( int argc, char** argv )
     cv::Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
     cv::Mat rvec, tvec, inliers;
     // 求解pnp
-    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 100, inliers );
+    // change confidence to (0,1)
+    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.99, inliers );
 
     cout<<"inliers: "<<inliers.rows<<endl;
     cout<<"R="<<rvec<<endl;
