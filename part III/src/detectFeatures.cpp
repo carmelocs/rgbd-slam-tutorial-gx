@@ -31,8 +31,8 @@ int main( int argc, char** argv )
     
     // 如果使用 sift, surf ，之前要初始化nonfree模块
     // cv::initModule_nonfree();
-    // detector = cv::FastFeatureDetector::create();
-    // descriptor = cv::FastFeatureDetector::create();
+    // cv::Ptr<cv::FeatureDetector> detector = cv::FeatureDetector::create( "SIFT" );
+    // cv::Ptr<cv::DescriptorExtractor> descriptor = cv:: DescriptorExtractor::create( "SIFT" );
     
     detector = cv::ORB::create();
     descriptor = cv::ORB::create();

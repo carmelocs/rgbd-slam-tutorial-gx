@@ -1,9 +1,0 @@
-/home/shuai_cheng/Documents/Repositories/rgbd-slam-tutorial-gx/part IV/bin/CMakeFiles/rebuild_cache.dir
-/home/shuai_cheng/Documents/Repositories/rgbd-slam-tutorial-gx/part IV/bin/CMakeFiles/edit_cache.dir
-/home/shuai_cheng/Documents/Repositories/rgbd-slam-tutorial-gx/part IV/bin/src/CMakeFiles/generate_pointcloud.dir
-/home/shuai_cheng/Documents/Repositories/rgbd-slam-tutorial-gx/part IV/bin/src/CMakeFiles/main.dir
-/home/shuai_cheng/Documents/Repositories/rgbd-slam-tutorial-gx/part IV/bin/src/CMakeFiles/edit_cache.dir
-/home/shuai_cheng/Documents/Repositories/rgbd-slam-tutorial-gx/part IV/bin/src/CMakeFiles/slambase.dir
-/home/shuai_cheng/Documents/Repositories/rgbd-slam-tutorial-gx/part IV/bin/src/CMakeFiles/rebuild_cache.dir
-/home/shuai_cheng/Documents/Repositories/rgbd-slam-tutorial-gx/part IV/bin/src/CMakeFiles/detectFeatures.dir
-/home/shuai_cheng/Documents/Repositories/rgbd-slam-tutorial-gx/part IV/bin/src/CMakeFiles/joinPointCloud.dir

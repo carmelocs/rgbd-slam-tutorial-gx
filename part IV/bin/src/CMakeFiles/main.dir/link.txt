@@ -1,1 +1,0 @@
-g++    -g    -rdynamic CMakeFiles/main.dir/main.cpp.o  -o ../main  -L"/home/shuai_cheng/Documents/Repositories/rgbd-slam-tutorial-gx/part IV/lib" 
