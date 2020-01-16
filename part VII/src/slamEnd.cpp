@@ -137,7 +137,7 @@ int main( int argc, char** argv )
 
     }
 
-    // pcl::io::savePCDFile( "data/result.pcd", *cloud );
+    pcl::io::savePCDFile( "data/result.pcd", *cloud );
     
     // 优化所有边
     cout<<"optimizing pose graph, vertices: "<<globalOptimizer.vertices().size()<<endl;

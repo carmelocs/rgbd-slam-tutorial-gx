@@ -178,7 +178,7 @@ int main( int argc, char** argv )
     voxel.setInputCloud( output );
     voxel.filter( *tmp );
     //存储
-    pcl::io::savePCDFile( "./data/result.pcd", *tmp );
+    pcl::io::savePCDFile( "./data/result_loop_detection.pcd", *tmp );
     
     cout<<"Final map is saved."<<endl;
     return 0;
